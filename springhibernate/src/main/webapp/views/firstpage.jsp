@@ -32,6 +32,8 @@
 </c:choose>
 
 
+<!-- 
+
 <div id="section1" class="container-fluid bg-secondary" style="padding-top:2px;padding-bottom:30px">
   <h4>Section 1</h4>
  	<%@ include file="sectionone.jsp" %>	
@@ -53,6 +55,9 @@
   <h1>Section 5 </h1>
  <p>Add Content</p>
 </div>
+ -->
+
+<%@include file="cardlist.jsp" %>
 
 
 ${UserMessage}	

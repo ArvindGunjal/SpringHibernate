@@ -37,7 +37,9 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-   <img width="40" height="40" src="/springhibernate/getSiteLogo"></img>
+ <!--  <img width="40" height="40" src="/springhibernate/getSiteLogo"></img> --> 
+ 
+ <img width="40" height="40" src="/springhibernate/getSiteLogo"></img>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
@@ -54,6 +56,9 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
      <img src="/springhibernate/getProfile_Image" class="img-circle" alt="Cinque Terre" width="40" height="40"> 
+    
+     
+     
       <li><a class="glyphicon glyphicon-user" type="button" data-toggle="dropdown">SuperUser
     <span class="caret"></span></a> <ul class="dropdown-menu">
       <li><a href="/springhibernate/adminloginpage">Admin</a></li>

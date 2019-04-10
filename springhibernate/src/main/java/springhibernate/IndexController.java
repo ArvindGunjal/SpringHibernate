@@ -34,6 +34,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,17 +69,18 @@ public class IndexController {
 	static String uemail="";
 	
 	@RequestMapping(value="/welcome",method= {RequestMethod.GET,RequestMethod.POST})
-	public ModelAndView display(HttpSession session,HttpServletRequest request)
+	public ModelAndView display(@Value("${imagefolder}")String folderpath,HttpSession session,HttpServletRequest request,Model model)
 	{
 		
 		logger.info("Msg from display method");
 	
-		
+	
 		//session closed
 		System.out.println("Session That is going to close  is "+session.getId());
 		session.invalidate();
 		System.out.println("Previous session close");
 		ModelAndView modelandview=new ModelAndView("welcomepage");
+		model.addAttribute("folder", folderpath);
 		return modelandview;
 	}
 	
@@ -86,7 +88,7 @@ public class IndexController {
 	//method for login
 	
 	@RequestMapping(value="/userloginform",method= RequestMethod.POST)
-	public ModelAndView userform(@RequestParam("email")String email,@RequestParam("password") String password,HttpSession session,HttpServletRequest request,Model model)
+	public ModelAndView userform(@Value("${imagefolder}")String folderpath,@RequestParam("email")String email,@RequestParam("password") String password,HttpSession session,HttpServletRequest request,Model model)
 	{	
 		logger.info("Msg from userform method");
 		mcobject=new MapperClass();
@@ -98,6 +100,7 @@ public class IndexController {
 		if(usercheck>0)
 		{
 			uemail=email;
+			logger.info("User Validated");
 			//session start
 			session=request.getSession();
 			System.out.println("Current Session ID is "+session.getId()+"Time is "+session.getCreationTime());
@@ -107,12 +110,13 @@ public class IndexController {
 			HttpSession session1=request.getSession();
 			session1.setAttribute("username", email);
 			
+			model.addAttribute("folderpath", folderpath);
 			model.addAttribute("username", email);
 			model.addAttribute("id",usercheck);
 			return modelandview;
 		}
 		else {
-			
+			logger.info("User Not Validated");
 			ModelAndView modelandview=new ModelAndView("welcomepage");
 			modelandview.addObject("message", "Please Register");
 			return modelandview; 
@@ -255,22 +259,31 @@ private void initMultipartResolver(ApplicationContext context)
   }
 
 @RequestMapping("/getSiteLogo")
-public void getSiteLogo(HttpServletResponse response) throws IOException 
+public void getSiteLogo(@Value("${folderlocation}") String folderpath,HttpServletResponse response) throws IOException 
 {
-	byte site_logo[]=daoclass.getSite_Image("site_logo.png");
+	logger.info("Message from getSiteLogo");
+	byte site_logo[]=daoclass.getSite_Image("site_logo.png",folderpath);
 	InputStream inputstream=new ByteArrayInputStream(site_logo);
 	IOUtils.copy(inputstream,response.getOutputStream());
 }
 
 @RequestMapping("/getProfile_Image")
-public void getProfile_Image(HttpServletResponse response) throws IOException
+public void getProfile_Image(@Value("${folderlocation}") String folderpath,HttpServletResponse response) throws IOException
 {
-
-	byte site_logo[]=daoclass.getSite_Image(uemail);
+	logger.info("Message from getProfile_Image method");
+	byte site_logo[]=daoclass.getSite_Image(uemail,folderpath);
 	InputStream inputstream=new ByteArrayInputStream(site_logo);
 	IOUtils.copy(inputstream,response.getOutputStream());
 }
 
-
+@RequestMapping("/card_Images/{sectionno}")
+public void card_Images(@Value("${folderlocation}") String folderpath,@PathVariable("sectionno")String sectionno,HttpServletResponse response) throws IOException
+{
+	logger.info("Message from card_Images");
+	System.out.println(sectionno);
+	byte site_logo[]=daoclass.getSite_Image(sectionno,folderpath);
+	InputStream inputstream=new ByteArrayInputStream(site_logo);
+	IOUtils.copy(inputstream,response.getOutputStream());
+}
 
 }

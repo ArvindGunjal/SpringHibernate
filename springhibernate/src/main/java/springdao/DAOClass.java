@@ -232,10 +232,10 @@ public class DAOClass {
 	}
 	
 //Generic Method for getting images
-	public byte[] getSite_Image(String image_name)
+	public byte[] getSite_Image(String image_name,String folderpath)
 	{
 		byte[] site_logo=null;
-		File fi = new File("/home/cmssu/Desktop/tmpFiles/"+image_name);
+		File fi = new File(folderpath+"/tmpFiles/"+image_name);
 		System.out.println("Check 1");
 		try {
 			System.out.println("Check 2");

@@ -125,7 +125,7 @@ function validate()
  
     <a href="/springhibernate/registrationpage">Not Registered? </a>
    <strong>${message}</strong>
-   
+  
  
   </div>
   

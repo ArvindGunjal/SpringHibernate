@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.log4j.Logger;
 import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,7 +40,10 @@ public class adminprevilege {
 	
 	MapperClass mcobject;
 	
-
+	private static final Logger logger = Logger.getLogger(IndexController.class);
+	
+	
+	
 	Map<Integer, String>userlist;
 	Map<Integer, Blob> profile_image=new HashMap<Integer, Blob>();
 
@@ -47,6 +51,7 @@ public class adminprevilege {
 	@RequestMapping(value="/deleteuser/{id}")
 	public ModelAndView deletuser(@PathVariable("id") int id,Model model,HttpSession session,ModelMap map)
 	{
+		logger.info("Message from deleteuser");
 		System.out.println("session id"+session.getId());
 		System.out.println(id);
 		int result=daoclass.deleteuser(id);
@@ -71,6 +76,7 @@ public class adminprevilege {
 	@RequestMapping("/edit_user_details")
 	public ModelAndView edit_user_details(@RequestParam("id") int id,@RequestParam("email") String email,@RequestParam("password") String password,Model model)
 	{
+		logger.info("Message from edit_user_details");
 		mcobject=new MapperClass();
 		mcobject.setId(id);
 		mcobject.setPassword(password);
