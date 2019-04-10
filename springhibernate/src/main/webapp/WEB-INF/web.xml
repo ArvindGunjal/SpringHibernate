@@ -1,0 +1,39 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+		<servlet-name>appServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/servlet-dispatcher.xml</param-value>
+		</init-param>
+		  <init-param>
+        <param-name>path</param-name>
+        <param-value>//home//cmssu//Desktop//</param-value>
+       </init-param>
+       
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+		
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+		
+		<security-constraint>
+		<display-name>Prevent access to raw pages.</display-name>
+		<web-resource-collection>
+		<web-resource-name>Raw Pages</web-resource-name>
+		<url-pattern>/springhibernate/views/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+		<description>No roles, so no direct access</description>
+		</auth-constraint>
+		</security-constraint>
+</web-app>
+
