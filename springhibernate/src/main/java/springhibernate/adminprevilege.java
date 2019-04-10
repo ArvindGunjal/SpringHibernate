@@ -81,7 +81,7 @@ public class adminprevilege {
 		Map<Integer, List<String>>userlist=daoclass.useradminlist(daoclass.fetchuserslist());  //when this line exe all profile_pic set in list
 		ModelAndView modelandview=new ModelAndView("firstpage");
 		model.addAttribute("lists",userlist);
-		if(i>0)
+		if(i>0)			//checking User Exist or not
 		{
 			
 			model.addAttribute("message","true1");
