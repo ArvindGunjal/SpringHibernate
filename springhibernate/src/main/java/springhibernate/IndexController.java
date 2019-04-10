@@ -138,16 +138,16 @@ public class IndexController {
 			mcobject.setEmail(email);
 			mcobject.setPassword(password);
 			
-			String webApp="/home/cmssu/Mali/";
-	
+			
+			System.out.println("${user}");
 			//Testing
 			byte[] bytes = file.getBytes();
 
 			
 			// Creating the directory to store file
 			String rootPath ="/home/cmssu/Desktop" ;
-		
 			
+			System.out.println("${user}");
 			//Logic select image and store into /home/cmssu/Mali/tempFiles folder and from that path store image to database
 			File dir = new File(rootPath + File.separator + "tmpFiles");
 			if (!dir.exists())

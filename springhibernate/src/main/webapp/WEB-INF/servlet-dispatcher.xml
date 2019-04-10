@@ -21,7 +21,12 @@
 
 
 
-
+<bean id="dbProperties"
+    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+ 
+    <property name="location" value="classpath:db.properties" />
+ 
+</bean>
 
 
 <context:component-scan base-package="springhibernate" />
@@ -38,10 +43,10 @@
 	
 	<bean id = "mydataSource"
      class = "com.mchange.v2.c3p0.ComboPooledDataSource">
-   <property name = "driverClass" value = "com.mysql.jdbc.Driver"/>
-   <property name = "jdbcUrl" value = "jdbc:mysql://192.168.0.80/springmvc"/>
-   <property name = "user" value = "root"/>
-   <property name = "password" value ="Cmss@!@#123"/>
+   <property name = "driverClass" value = "${driverClass}"/>
+   <property name = "jdbcUrl" value = "${jdbcUrl}"/>
+   <property name = "user" value = "${user}"/>
+   <property name = "password" value ="${password}"/>
 </bean>
 
 
