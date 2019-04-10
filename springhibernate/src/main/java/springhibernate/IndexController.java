@@ -26,6 +26,7 @@ import org.hibernate.engine.jdbc.BlobProxy;
 import org.apache.commons.logging.impl.Log4JLogger;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.converter.json.GsonBuilderUtils;
@@ -130,7 +131,7 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value="/registration",method= {RequestMethod.POST,RequestMethod.GET})	
-	public String registration(@RequestParam("email") String email,@RequestParam("password") String password, @RequestParam("password-repeat") String passwordrepeat,@RequestParam("fileToUpload") MultipartFile file,Model model,HttpServletRequest request) throws Exception
+	public String registration(@Value("${folderlocation}") String folderpath, @RequestParam("email") String email,@RequestParam("password") String password, @RequestParam("password-repeat") String passwordrepeat,@RequestParam("fileToUpload") MultipartFile file,Model model,HttpServletRequest request) throws Exception
 	{
 			logger.info("Msg from Registration Method");
 			mcobject=new MapperClass();
@@ -139,15 +140,17 @@ public class IndexController {
 			mcobject.setPassword(password);
 			
 			
-			System.out.println("${user}");
+			System.out.println("Folder Path"+ folderpath);
 			//Testing
 			byte[] bytes = file.getBytes();
 
-			
+		
 			// Creating the directory to store file
-			String rootPath ="/home/cmssu/Desktop" ;
+			String rootPath =folderpath ;
 			
-			System.out.println("${user}");
+			
+			
+			
 			//Logic select image and store into /home/cmssu/Mali/tempFiles folder and from that path store image to database
 			File dir = new File(rootPath + File.separator + "tmpFiles");
 			if (!dir.exists())
