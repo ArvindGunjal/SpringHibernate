@@ -58,6 +58,11 @@ h1 {
 .content {
   background-color: white;
   padding: 10px;
+  align-content: center;
+  border-style:groove;
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  min-height: 150%;
+  max-height: 150%;
 }
 
 /* The "show" class is added to the filtered elements */
@@ -82,6 +87,20 @@ h1 {
   background-color: #666;
   color: white;
 }
+.btn1 {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+
+}
+
 </style>
 
 <script>
@@ -146,74 +165,64 @@ for (var i = 0; i < btns.length; i++) {
 <!-- Portfolio Gallery Grid -->
 <div class="row">
   <div class="column A">
-    <div class="content">
-       <img src="/springhibernate/card_Images/sectionA1" alt="A" style="width:100%"> 
-      <h4>Mountains</h4>
-      <p>Lorem ipsum dolor..</p>
+    <div class="content" style="text-align: center;"> 
+       <img src="/springhibernate/card_Images/sectionA1" alt="A" style="width:50%">	<!-- Reference Link https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_cards --> 
+     <p><br><br><button class="btn1">Add to Cart</button></p>
     </div>
   </div>
   <div class="column A">
-    <div class="content">
-    <img src="/springhibernate/card_Images/sectionA2" alt="A" style="width:100%">
-      <h4>Lights</h4>
-      <p>Lorem ipsum dolor..</p>
+    <div class="content" style="text-align: center;">
+    <img src="/springhibernate/card_Images/sectionA2" alt="A" style="width:50%">
+       <p><br><br><button class="btn1">Add to Cart</button></p>
     </div>
   </div>
   <div class="column A">
-    <div class="content">
-    <img src="/springhibernate/card_Images/sectionA3" alt="A" style="width:100%">
-      <h4>Forest</h4>
-      <p>Lorem ipsum dolor..</p>
+    <div class="content" style="text-align: center;">
+    <img src="/springhibernate/card_Images/sectionA3" alt="A" style="width:50%">
+      <p><br><br><button class="btn1">Add to Cart</button></p>
     </div>
   </div>
     <div class="column A">
-    <div class="content">
-    <img src="/springhibernate/card_Images/sectionA4" alt="A" style="width:100%">
-      <h4>Forest</h4>
-      <p>Lorem ipsum dolor..</p>
+    <div class="content" style="text-align: center;">
+    <img src="/springhibernate/card_Images/sectionA4" alt="A" style="width:50%">
+      <p><br><br><button class="btn1">Add to Cart</button></p>
     </div>
   </div>
   <div class="column B">
-    <div class="content">
-      <img src="/w3images/cars1.jpg" alt="B" style="width:100%">
-      <h4>Retro</h4>
-      <p>Lorem ipsum dolor..</p>
+    <div class="content" style="text-align: center;">
+      <img src="/springhibernate/card_Images/sectionA1" alt="B" style="width:50%">
+      <p><br><br><button class="btn1">Add to Cart</button></p>
     </div>
   </div>
   <div class="column B">
-    <div class="content">
-    <img src="/w3images/cars2.jpg" alt="B" style="width:100%">
-      <h4>Fast</h4>
-      <p>Lorem ipsum dolor..</p>
+    <div class="content" style="text-align: center;">
+    <img src="/springhibernate/card_Images/sectionB2" alt="B" style="width:50%">
+      <p><br><br><button class="btn1">Add to Cart</button></p>
     </div>
   </div>
   <div class="column B">
-    <div class="content">
-    <img src="/w3images/cars3.jpg" alt="B" style="width:100%">
-      <h4>Classic</h4>
-      <p>Lorem ipsum dolor..</p>
+    <div class="content" style="text-align: center;">
+    <img src="/springhibernate/card_Images/sectionB3" alt="B" style="width:50%">
+      <p><br><br><button class="btn1">Add to Cart</button></p>
     </div>
   </div>
 
   <div class="column C">
-    <div class="content">
-      <img src="/w3images/people1.jpg" alt="C" style="width:100%">
-      <h4>Girl</h4>
-      <p>Lorem ipsum dolor..</p>
+    <div class="content" style="text-align: center;">
+      <img src="/springhibernate/card_Images/sectionC1" alt="C" style="width:50%">
+       <p><br><br><button class="btn1">Add to Cart</button></p>
     </div>
   </div>
   <div class="column C">
-    <div class="content">
-    <img src="/w3images/people2.jpg" alt="C" style="width:100%">
-      <h4>Man</h4>
-      <p>Lorem ipsum dolor..</p>
+    <div class="content" style="text-align: center;">
+    <img src="/springhibernate/card_Images/sectionC2" alt="C" style="width:50%">
+      <p><br><br><button class="btn1">Add to Cart</button></p>
     </div>
   </div>
   <div class="column C">
-    <div class="content">
-    <img src="/w3images/people3.jpg" alt="C" style="width:100%">
-      <h4>Woman</h4>
-      <p>Lorem ipsum dolor..</p>
+    <div class="content" style="text-align: center;">
+    <img src="/springhibernate/card_Images/sectionA1" alt="C" style="width:50%">
+       <p><br><br><button class="btn1">Add to Cart</button></p>
     </div>
   </div>
 <!-- END GRID -->

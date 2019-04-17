@@ -276,7 +276,7 @@ public void getProfile_Image(@Value("${folderlocation}") String folderpath,HttpS
 	IOUtils.copy(inputstream,response.getOutputStream());
 }
 
-@RequestMapping("/card_Images/{sectionno}")
+@RequestMapping("/card_Images/{sectionno}")		//only PNG Images
 public void card_Images(@Value("${folderlocation}") String folderpath,@PathVariable("sectionno")String sectionno,HttpServletResponse response) throws IOException
 {
 	logger.info("Message from card_Images");

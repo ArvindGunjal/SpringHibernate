@@ -84,7 +84,7 @@ public class DAOClass {
 			procedurecall.setParameter("email", mpclass.getEmail());
 			procedurecall.setParameter("upassword",mpclass.getPassword());
  
-			
+			System.out.println("Check 1");
 			procedurecall.execute();
 			
 			int result=0;
@@ -103,6 +103,7 @@ public class DAOClass {
 		
 		catch(Exception ex) {
 			System.out.println(ex);
+			ex.printStackTrace();
 			return 0;
 		}
 		finally {
@@ -231,7 +232,7 @@ public class DAOClass {
 		
 	}
 	
-//Generic Method for getting images
+//Generic Method for getting images //only PNG Images
 	public byte[] getSite_Image(String image_name,String folderpath)
 	{
 		byte[] site_logo=null;
